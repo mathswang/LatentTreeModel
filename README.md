@@ -31,7 +31,7 @@ This script implements latent variable-based clustering analysis under drifting 
 
 These scripts implement real data clustering analysis based on multiple clustering algorithms and evaluates the clustering results using both internal and external metrics (Table 4 in the paper).
 
-
-
+## Notes
+Methods that integrate Graph Convolutional Networks (GCN) are not reproducible using the code in this repository.
 
 
