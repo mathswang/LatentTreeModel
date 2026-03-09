@@ -742,25 +742,25 @@ def cluster_main1(data_obs, model_es, marginal_prob_01, true_labels, num_cluster
         return {
             'O': [
                 ('kmeans', create_kmeans_cluster()),
-                ('sinkhorn', create_sinkhorn_cluster()),
-                ('spectral', create_spectral_cluster()),
-                ('gmm', create_gmm_cluster())
+                ('sinkhorn', create_sinkhorn_cluster())
+                # ('spectral', create_spectral_cluster()),
+                # ('gmm', create_gmm_cluster())
             ],
             'H': [
                 ('kmeans', create_kmeans_cluster()),
                 ('sinkhorn', create_sinkhorn_cluster()),
-                ('spectral', create_spectral_cluster()),
-                ('gmm', create_gmm_cluster()),
-                ('gcn+kmeans', GCNClusterWrapper(model_es, 'H', create_kmeans_cluster())),
-                ('gcn+gmm', GCNClusterWrapper(model_es, 'H', create_gmm_cluster()))
+                # ('spectral', create_spectral_cluster()),
+                # ('gmm', create_gmm_cluster()),
+                ('gcn+kmeans', GCNClusterWrapper(model_es, 'H', create_kmeans_cluster()))
+                # ('gcn+gmm', GCNClusterWrapper(model_es, 'H', create_gmm_cluster()))
             ],
             'O+H': [
                 ('kmeans', create_kmeans_cluster()),
                 ('sinkhorn', create_sinkhorn_cluster()),
                 ('spectral', create_spectral_cluster()),
-                ('gmm', create_gmm_cluster()),
-                ('gcn+kmeans', GCNClusterWrapper(model_es, 'O+H', create_kmeans_cluster())),
-                ('gcn+gmm', GCNClusterWrapper(model_es, 'O+H', create_gmm_cluster()))
+                # ('gmm', create_gmm_cluster()),
+                ('gcn+kmeans', GCNClusterWrapper(model_es, 'O+H', create_kmeans_cluster()))
+                # ('gcn+gmm', GCNClusterWrapper(model_es, 'O+H', create_gmm_cluster()))
             ],
             'O&H_std': [
                 ('co-clustering', create_custom_cocluster())
@@ -808,4 +808,5 @@ for seed in range(42,52):
     true_labels = true_labels_df['true_label'].values
     print('true_labels', true_labels)
     cluster_main1(data_obs, model_es, marginal_prob, true_labels, num_cluster_new, num_runs, random_seed)
+
 
